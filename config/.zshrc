@@ -92,6 +92,7 @@ ZSH_THEME="muse"
 alias l='ls -la'
 alias c='clear'
 alias distro='cat /etc/*-release'
+alias pubkey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 
 # 3Data Projects
 alias blvdr='cd ~/3data/code/belvedere && nvm current && git fetch'
