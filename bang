@@ -1,0 +1,20 @@
+#! /bin/bash 
+apt update && \
+apt list --upgradable && \
+apt upgrade -y && \
+apt install zsh && \
+chsh -s /usr/bin/zsh root && \
+echo $SHELL && \
+apt install wget && \
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh && \
+rm  -rf ~/.zshrc && \
+cp config/.zshrc ~/.zshrc && \
+source ~/.zshrc && \
+apt install tmux && \
+cp config/.tmux.conf ~/.tmux.conf && \
+source ~/.tmux.conf && \
+apt install vim && \
+cp config/.vimrc ~/.vimrc && \
+source ~/.vimrc 
+
+
