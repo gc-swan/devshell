@@ -1,8 +1,8 @@
-export PATH=$HOME/applications/:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/gcswan/.oh-my-zsh"
-export PATH=$HOME/snap/bin/:$PATH
+export PATH="$HOME/snap/bin/:$HOME/applications/:$PATH"
+
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -75,11 +75,15 @@ set XDG_CONFIG_HOME='~/.tmux/plugins/tpm/tpm'
 
 #ZSH_THEME="powerlevel10k"
 #ZSH_THEME="random"
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
 #ZSH_THEME="peepcode"
-#ZSH_THEME="miloshadzic"
+ZSH_THEME="miloshadzic"
 #ZSH_THEME="gozilla" 
 #ZSH_THEME="robbyrussell"
+#ZSH_THEME="kphoen"
+#ZSH_THEME="kolo"
+#ZSH_THEME="wezm"
+#ZSH_THEME="dst"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will causesh to load
@@ -91,6 +95,8 @@ ZSH_THEME="af-magic"
 alias l='ls -lart'
 alias c='clear'
 alias temp='watch -n2 sensors'
+alias theme='echo $THEME'
+alias architecture='dpkg --print-architecture'
 
 # Tmux 
 alias tmux='tmux -2'
@@ -101,10 +107,12 @@ alias tk='tmux kill-session'
 # Mongo
 alias mongo_staging='mongo 3data-staging-mongodb.documents.azure.com:10255 -u 3data-staging-mongodb -p ZuNF9BHTEnPU093jBXjQUSVsaHgsh3GAfde17Db18LmHR5WUFuQ2ZbzIE2OUbdlEU0zVvACgmP484dKIux9SXg== --ssl --sslAllowInvalidCertificates'
 alias mongo_production='mongo 3data-pilot.documents.azure.com:10255 -u 3data-pilot -p Qw2KwRUvOaBgytHZjxLS6f6VTiZaLN9cx9strzTSoloHDkXzPy4zqHy2ppsR5607RMsYjhTptHL9MWC1EaoxOg== --ssl --sslAllowInvalidCertificates' 
+
 # Project Aliases
 alias blvdr='cd ~/3data/code/belvedere && nvm current && git fetch'
 alias aprtr='cd ~/3data/code/aperture && nvm current && git fetch'
 alias zeus='cd ~/3data/code/zues.gl && nvm current && git fetch'
+alias atlas='cd ~/3data/code/atlas && nvm current && git fetch'
 
 #Taskbook aliases
 alias tb='taskbook'
@@ -127,7 +135,11 @@ alias ga='git add .'
 alias gc='git commit -m'
 alias gf='git fetch'
 alias gb='git branch'
+alias gc='git checkout'
 alias gd='git diff'
+alias gl=''
+alias glp=''
+alias gpom='git push origin master'
 
 # Python3
 alias pip='pip3'
@@ -137,6 +149,7 @@ alias python='python3'
 alias nvmc='nvm current'
 alias n813='nvm use v8.13.0'
 alias n817='nvm use v8.17.0'
+alias n1218='nvm use v12.18.0'
 
 # Yarn aliases
 alias yd='yarn dev'
@@ -144,3 +157,12 @@ alias ys='yarn start'
 
 # 3data
 alias tkn='sh ~/3data/code/belvedere/scripts/showMeTheTokens.sh'
+alias dctkn='sh ~/3data/code/atlas/belvedere/scripts/showMeTheTokens.sh'
+
+# Docker Compose
+alias dcu='docker-compose up'
+alias dcc='docker-compose config'
+alias dce='docker-compose exec -it'
+alias dcb='docker-compose build'
+alias dcd='docker-compose down'
+alias dcdro='docker-compose down -v --rmi all --remove-orphans'

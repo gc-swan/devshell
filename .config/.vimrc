@@ -2,6 +2,7 @@
 set rtp+=~/.vim/autoload/plug.vim
 
 call plug#begin('~/.vim/autoload/plugged')
+  Plug 'pangloss/vim-javascript'
   Plug 'sainnhe/edge'
   Plug 'sainnhe/sonokai'
   Plug 'junegunn/vim-easy-align'
@@ -89,32 +90,56 @@ set novisualbell
 set textwidth=80
 
 "########## COLORS ########## 
-
-
 "pick a style - andromeda, atlantis, maia, shusia
-let g:sonokai_cursor='red'
-let g:sonokai_style='atlantis'
-let g:sonokai_enable_italic=0
-let g:sonokai_disable_italic_comment=1
+let g:sonokai_cursor='auto'
+"let g:sonokai_style='atlantis'
+"let g:sonokai_style='andromeda'
+let g:sonokai_style='shusia'
+"let g:sonokai_style='maia'
+let g:sonokai_enable_italic=1
+let g:sonokai_transparent_background=1
+let g:sonokai_lightline_disable_bold=0
 
 "let g:edge_style = 'neon'
 "let g:edge_enable_italic=1
-"let g:edge_disable_italic_comment = 1
+"let g:edge_disable_italic_comment =0
+
+"Molokai
+let g:rehash256 = 1
+"let g:molokai_original = 1
 
 set t_Co=256
 set background=dark
+set syntax=on
+set termguicolors
 
-"Vim colorscheme
 "colorscheme molokayo 
 "colorscheme molokai 
 colorscheme sonokai 
 "colorscheme edge  
+"colorscheme monokai-bold
 
-let g:ligtline_theme = 'sonokai' 
-
+" ########## AIRLINE ##########
+let g:airline_powerline_fonts = 1
+let g:airline_theme='minimalist'                                                                                                             
+let g:airline_powerline_fonts = 1                                                                                                         
+let g:airline_section_b = '%{getcwd()}' " in section B of the status line display the CWD                                                 
+                                                                                                                                          
+"TABLINE:                                                                                                                                 
+                                                                                                                                          
+let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
+let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
+let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)      
+let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
+let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right                                                           
+let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline                                                 
+let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline                                  
+let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline               
+let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers                                                              
+let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 "Set utf8 as standard encoding and en_US as the standard language
-
 set encoding=utf8
 
 "Use Unix as the standard file type
@@ -200,12 +225,31 @@ nmap <F6> :NERDTreeToggle<CR>
 "########## Vim Rainbow ##########
 
 let g:rainbow_active = 1
-
 set list
 set listchars=tab:>-
 
-set termguicolors
 
-"let g:vue_pre_processors = ['pug', 'scss']
+" Syntax and language processing
+"
+" Vim Javascript Config
+let g:javascript_plugin_jsdoc = 1
+"augroup javascript_folding
+    "au!
+    "au FileType javascript setlocal foldmethod=syntax
+"augroup END
+"let g:javascript_conceal_function             = "ƒ"
+"let g:javascript_conceal_null                 = "ø"
+"let g:javascript_conceal_this                 = "@"
+"let g:javascript_conceal_return               = "⇚"
+"let g:javascript_conceal_undefined            = "¿"
+"let g:javascript_conceal_NaN                  = "ℕ"
+"let g:javascript_conceal_prototype            = "¶"
+"let g:javascript_conceal_static               = "•"
+"let g:javascript_conceal_super                = "Ω"
+"let g:javascript_conceal_arrow_function       = "⇒"
+"let g:javascript_conceal_noarg_arrow_function = "🞅"
+"let g:javascript_conceal_underscore_arrow_function = "🞅""
+"set conceallevel=1
+"map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
 let g:vue_pre_processors = 'detect_on_enter'
